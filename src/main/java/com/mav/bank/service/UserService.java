@@ -23,5 +23,14 @@ private static final String USERNOTFOUND = "User not in system";
 			User result = userRepository.save(user);
 			return result;
 		}
+		
+	//update user
+		public User updateUser(User user, int id) 
+		{
+			User user_updated=null;
+			user.setId(id);
+		    user_updated=userRepository.save(user);
+		    return user_updated;
+		}
 
 }
