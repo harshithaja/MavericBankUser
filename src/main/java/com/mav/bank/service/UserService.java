@@ -1,5 +1,7 @@
 package com.mav.bank.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -52,6 +54,12 @@ private static final String USERNOTFOUND = "User not in system";
 			User user = null;
 			user = userRepository.findByEmail(email);
 			return user;
+
+		}
+		public List<User> getAllUsers() 
+		{
+			List<User> list = (List<User>) this.userRepository.findAll();
+			return list;
 
 		}
 
