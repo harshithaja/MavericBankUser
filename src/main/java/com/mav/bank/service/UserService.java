@@ -32,5 +32,11 @@ private static final String USERNOTFOUND = "User not in system";
 		    user_updated=userRepository.save(user);
 		    return user_updated;
 		}
+		
+		//delete user
+		public void deleteUser(int userid) 
+		{
+			userRepository.deleteById(userid);
+		}
 
 }
