@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -52,6 +53,20 @@ public class UserController
 		//jsonResponseMap.put("status", 1);
 		//jsonResponseMap.put("message", "Record is updated Successfully!");
 		return new ResponseEntity<>(update_details, HttpStatus.OK);
+
+	}
+	
+	
+	@DeleteMapping("/users/{userid}")
+	public  ResponseEntity<?> deleteUser(@PathVariable("userid") int id) 
+	{
+		Map<String, Object> jsonResponseMap = new LinkedHashMap<String, Object>();
+		//jsonResponseMap.put("status", 1);
+		jsonResponseMap.put("message", "User is Successfully deleted");
+         userService.deleteUser(id);
+		return new ResponseEntity<>(jsonResponseMap, HttpStatus.OK);
+
+       
 
 	}
 
