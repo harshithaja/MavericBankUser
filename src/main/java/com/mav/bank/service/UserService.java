@@ -38,5 +38,22 @@ private static final String USERNOTFOUND = "User not in system";
 		{
 			userRepository.deleteById(userid);
 		}
+		
+		//get user by id and email
+		public User getUserById(int id)
+		{
+			User user = null;
+			user =  userRepository.findById(id);
+			return user;
+		}
+
+		public User getUserByEmail(String email) 
+		{
+			User user = null;
+			user = userRepository.findByEmail(email);
+			return user;
+
+		}
+
 
 }
